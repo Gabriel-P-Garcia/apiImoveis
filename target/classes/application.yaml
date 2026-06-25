@@ -1,0 +1,38 @@
+server:
+  port: 7777
+  error:
+    include-message: always
+spring:
+  application:
+    name: api-imoveis
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/imoveis
+    username: postgres
+    password: Ggpostgre@123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+    tags-sorter: alpha
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:chave-secreta-e-robusta-para-o-treinamento-2026}
+
+
