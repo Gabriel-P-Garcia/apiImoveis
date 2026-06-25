@@ -14,7 +14,7 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
     // Injeta a chave definida no application.yml
-    @Value("${api.security.token.secret")
+    @Value("${api.security.token.secret}")
     private String secret;
 
     // Método para gerar o token no login
@@ -22,7 +22,7 @@ public class TokenService {
         try {
             Algorithm algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
-                    .withIssuer("api-imóveis")              //Identificador do emissor do token
+                    .withIssuer("api-imoveis")              //Identificador do emissor do token
                     .withSubject(login)                     //Dono do token (usuário em questão)
                     .withExpiresAt(gerarDataExpiracao())    //Tempo limite
                     .sign(algoritmo);
@@ -36,7 +36,7 @@ public class TokenService {
         try {
             Algorithm algoritmo = Algorithm.HMAC256(secret);
             return JWT.require(algoritmo)
-                    .withIssuer("api-imóveis")
+                    .withIssuer("api-imoveis")
                     .build()
                     .verify(tokenJWT)
                     .getSubject();                          //Retorna o login do usuario se o token for válido
