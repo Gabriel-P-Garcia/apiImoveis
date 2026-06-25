@@ -8,8 +8,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5433/imoveis
-    username: postgres
-    password: Ggpostgre@123
+    username:                                               //Lembre-se de preencher username e password com o nome de usuário e senha que você estabeleceu no seu BD PostGres
+    password: 
     driver-class-name: org.postgresql.Driver
 
   jpa:
