@@ -35,7 +35,7 @@ public class FiltroJwtAutenticacao extends OncePerRequestFilter {
 
                 //  4. Autentica e avisa ao Spring Security que este usuário está ativo e liberado
 
-                var autenticacao = new UsernamePasswordAuthenticationToken(login,Collections.emptyList());
+                var autenticacao = new UsernamePasswordAuthenticationToken(login,null,Collections.emptyList());
                 SecurityContextHolder.getContext().setAuthentication(autenticacao);
             }
         }
